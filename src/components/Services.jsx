@@ -9,7 +9,6 @@ function Services() {
         try {
             const res = await fetch("service.json");
             const data = await res.json();
-            console.log(data.events)
             setServiceData(data.events);
         } catch (error) {
             console.log(error)

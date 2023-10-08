@@ -3,60 +3,70 @@
       {
         "id": "1",
         "name": "Amina Ahmed",
+        "image": "https://img.freepik.com/free-photo/happy-handsome-man_1368-9300.jpg?size=626&ext=jpg&ga=GA1.1.863241194.1678273173&semt=ais",
         "location": "New York, USA",
         "testimonial": "I had the most beautiful Islamic wedding organized by [Your Company Name]. Every detail was perfect, from the traditional rituals to the stunning decorations. It was a dream come true!"
       },
       {
         "id": "2",
         "name": "Dr. Khalid Rahman",
+        "image": "https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&ga=GA1.1.863241194.1678273173&semt=ais",
         "location": "London, UK",
         "testimonial": "The Islamic Scholars Conference was an enlightening experience. The lineup of scholars was impressive, and the organization was flawless. Thank you for fostering intellectual growth."
       },
       {
         "id": "3",
         "name": "Sara Ali",
+        "image": "https://img.freepik.com/free-photo/calm-teenager-with-crossed-arms_1149-943.jpg?size=626&ext=jpg&ga=GA1.1.863241194.1678273173&semt=ais",
         "location": "Toronto, Canada",
         "testimonial": "The Hajj Pilgrimage Tour was life-changing. It allowed me to focus on my spirituality while the team at [Your Company Name] handled all the logistics seamlessly. Highly recommended!"
       },
       {
         "id": "4",
         "name": "Ahmed Hassan",
+        "image": "https://img.freepik.com/free-photo/happy-handsome-man_1368-9300.jpg?size=626&ext=jpg&ga=GA1.1.863241194.1678273173&semt=ais",
         "location": "Dubai, UAE",
         "testimonial": "The Islamic Arts and Culture Festival was a delightful celebration of our heritage. The music, art, and food were incredible, and I felt a deep connection to our culture."
       },
       {
         "id": "5",
         "name": "Nadia Khan",
+        "image": "https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&ga=GA1.1.863241194.1678273173&semt=ais",
         "location": "Chicago, USA",
         "testimonial": "I participated in the Annual Quran Recitation Competition, and it was an honor. The competition was well-organized, and the atmosphere was filled with reverence for the Quran."
       },
       {
         "id": "6",
         "name": "Yusuf Ahmed",
+        "image": "https://img.freepik.com/free-photo/happy-handsome-man_1368-9300.jpg?size=626&ext=jpg&ga=GA1.1.863241194.1678273173&semt=ais",
         "location": "Dublin, Ireland",
         "testimonial": "Attending the Ramadan Charity Gala was a heartwarming experience. It brought the community together for a great cause, and I was inspired by the generosity on display."
       },
       {
         "id": "7",
         "name": "Leila Mahmoud",
+        "image": "https://img.freepik.com/free-photo/calm-teenager-with-crossed-arms_1149-943.jpg?size=626&ext=jpg&ga=GA1.1.863241194.1678273173&semt=ais",
         "location": "Cairo, Egypt",
         "testimonial": "The Islamic Calligraphy Exhibition was a visual feast. The beauty of Islamic art was on full display, and I left with a newfound appreciation for calligraphy."
       },
       {
         "id": "8",
         "name": "Ismail Malik",
+        "image": "https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&ga=GA1.1.863241194.1678273173&semt=ais",
         "location": "Sydney, Australia",
         "testimonial": "The Spiritual Retreat in Nature was exactly what I needed to recharge spiritually. Surrounded by nature, I found inner peace and tranquility."
       },
       {
         "id": "9",
         "name": "Fatima Khan",
+        "image": "https://img.freepik.com/free-photo/happy-handsome-man_1368-9300.jpg?size=626&ext=jpg&ga=GA1.1.863241194.1678273173&semt=ais",
         "location": "Los Angeles, USA",
         "testimonial": "Participating in the Islamic Games Challenge was so much fun. It was a great way to bond with fellow community members and stay active."
       },
       {
         "id": "10",
         "name": "Hassan Abdullah",
+        "image": "https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&ga=GA1.1.863241194.1678273173&semt=ais",
         "location": "Kuala Lumpur, Malaysia",
         "testimonial": "The Islamic Literature Fair was a treasure trove of knowledge. I discovered many insightful books and engaged in fascinating discussions."
       }
