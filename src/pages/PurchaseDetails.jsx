@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Card from '../components/Card';
 import useGetData from '../components/hook/useLocalStorage';
 
 function PurchaseDetails() {
+  const [serviceData, setServiceData] = useState([]);
     const getLocalData = useGetData()
     const loadData = useLoaderData();
-    const userDonation = loadData.events.filter(item => getLocalData.includes(parseInt(item.id)))
+    const userDonation = serviceData.filter(item => getLocalData.includes(parseInt(item.id)))
     console.log(loadData.events)
     console.log(userDonation)
     const [cardLength, setCardLength] = useState(4);
@@ -15,6 +16,20 @@ function PurchaseDetails() {
       setCardLength(getLocalData.length)
       
     }
+
+
+    useEffect(()=> {
+       async function fetchData(){
+        try {
+            const res = await fetch("service/service.json");
+            const data = await res.json();
+            setServiceData(data.events);
+        } catch (error) {
+            console.log(error)
+        }
+       }
+       fetchData()
+    },[])
     
   return (
     <>

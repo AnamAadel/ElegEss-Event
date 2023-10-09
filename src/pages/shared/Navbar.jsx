@@ -57,7 +57,7 @@ function Navbar() {
         <ul className={`menu shadow-xl md:shadow-none md:w-auto w-full absolute top-full transition-all rounded-none duration-500 right-0 flex-nowrap md:static md:menu-horizontal px-1  ${!showMenu ? "h-0 overflow-hidden p-0" : "h-[150px] md:h-auto overflow-auto"} bg-primary`} >
           <li onClick={handleMenu}><NavLink to={`/`}>Home</NavLink></li>
           <li onClick={handleMenu}><NavLink to={`/blogs/1`}>Blogs</NavLink></li>
-          <li onClick={handleMenu}><NavLink to={`/purchase_details`}>Purchase Details</NavLink></li>
+          {/* <li onClick={handleMenu}><NavLink to={`/purchaseDetails`}>Purchase Details</NavLink></li> */}
           <li onClick={handleMenu}><NavLink to={`/contact`}>Contact Us</NavLink></li>
         </ul>
 

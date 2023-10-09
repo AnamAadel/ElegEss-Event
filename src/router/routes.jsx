@@ -33,8 +33,8 @@ import PrivateRoute from "./PrivateRoute";
         element: <PrivateRoute><Blogs /></PrivateRoute> ,
       },
       {
-        path: "/purchase_details",
-        loader: ()=> fetch("service.json"),
+        path: "/purchaseDetails",
+        // loader: ()=> fetch("service.json"),
         element: <PrivateRoute><PurchaseDetails /></PrivateRoute> ,
       },
       {

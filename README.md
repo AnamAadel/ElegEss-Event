@@ -1,8 +1,26 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The website name: Elegance & Essence Events;
+The website live link: https://ugliest-icicle.surge.sh/
 
-Currently, two official plugins are available:
+## Frontend Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Content Presentation**:
+  - Display content in an engaging and user-friendly format.
+  - Organize cards with images, titles, descriptions, prices, and "read more" buttons.
+
+- **Responsive Design**:
+  - The user interface seamlessly adapts to various screen sizes and devices.
+
+- **Stored Purchased Services**:
+  - When a user clicks the "Pay for" button, event details are added to the purchased details page.
+
+- **Toast Notification**:
+  - Display a Toast Notification to indicate the success or failure of a purchased service.
+
+- **Firebase Authentication Feature**:
+  - User registration and login with email and password.
+  - Login with Google or GitHub accounts for convenience.
+
+- **Private Routes and Public Routes**:
+  - Implement protected private and public routes for improved security and accessibility.
+
