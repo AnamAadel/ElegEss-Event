@@ -9,16 +9,17 @@ function Details() {
     const [serviceData, setServiceData] = useState([]);
     const paramId = useParams();
     const {setDataToLocal} = useData();
+    console.log(paramId)
 
     const findItem = serviceData.find(item=> item.id === paramId.id);
-    console.log(findItem)
+    
 
     useEffect(()=> {
        async function fetchData(){
         try {
             const res = await fetch("service.json");
             const data = await res.json();
-            console.log(data)
+            
             setServiceData(data.events);
         } catch (error) {
             console.log(error)
@@ -30,7 +31,7 @@ function Details() {
     <>
     <div className="container mx-auto space-y-8 relative">
     <ToastContainer />
-        <div className="card flex flex-row gap-6 rounded-none bg-base-100 overflow-hidden sm:col-span-2 lg:col-span-3">
+        <div className="card flex md:flex-row gap-6 rounded-none bg-base-100 overflow-hidden">
             <figure className='relative flex-1'>
                 <img src={findItem?.image} alt="image" className='h-96 w-full object-cover' />
             </figure>

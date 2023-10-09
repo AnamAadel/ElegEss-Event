@@ -30,13 +30,13 @@ function ContactUs() {
           </label>
           <input type="number" placeholder="Phone" className="input input-bordered" required />
         </div>
-        <div className="form-control">
+        <div className="form-control md:col-span-2">
           <label className="label">
             <span className="label-text">Email</span>
           </label>
           <input type="email" placeholder="email" className="input input-bordered" required />
         </div>
-        <div className="form-control col-span-2">
+        <div className="form-control md:col-span-2">
           <label className="label">
             <span className="label-text">Message</span>
           </label>

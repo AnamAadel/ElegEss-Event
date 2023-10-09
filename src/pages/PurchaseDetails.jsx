@@ -19,7 +19,7 @@ function PurchaseDetails() {
   return (
     <>
     <h2 className="text-3xl font-bold text-center py-10 relative mb-6">Events you've bought <img src="/underline.png" alt="underline" className='absolute w-[300px] bottom-2 left-1/2 -translate-x-1/2' /></h2>
-    <div className='container mx-auto grid grid-cols-1 mt-16 md:grid-cols-2 gap-6 mb-12'>
+    <div className='container mx-auto grid grid-cols-1 mt-16 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12'>
       {getLocalData.length > 0 && userDonation.slice(0,cardLength).map(item => (
         <Card key={item.id} item={item} />
       ))}

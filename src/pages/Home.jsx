@@ -1,9 +1,8 @@
 import React from 'react'
 import About from '../components/About'
-import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 import Services from '../components/Services'
-import Navbar from './shared/Navbar'
+import Testimonials from "../components/Testimonials"
 
 function Home() {
   return (
@@ -11,7 +10,7 @@ function Home() {
         <Hero />
         <About />
         <Services />
-        {/* <Testimonials /> */}
+        <Testimonials />
     </div>
   )
 }

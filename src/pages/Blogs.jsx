@@ -6,10 +6,10 @@ function Blogs() {
     const [blogData, setBlogData] = useState([]);
     // const blogData = useLoaderData();
     const paramId = useParams();
-    console.log(blogData)
+    
 
     const findItem = blogData.find(item=> item.id == paramId.id);
-    console.log(findItem)
+    
 
     useEffect(()=> {
        async function fetchData(){
@@ -17,7 +17,6 @@ function Blogs() {
             const res = await fetch("blogData.json");
             const data = await res.json();
             setBlogData(data.blogs);
-            console.log(data.blogs)
         } catch (error) {
             console.log(error)
         }

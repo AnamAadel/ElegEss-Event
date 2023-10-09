@@ -1,6 +1,6 @@
 
-import { Navigate } from 'react-router-dom'
-import { AuthContexts } from '../components/context/AuthContext'
+import { Navigate } from 'react-router-dom';
+import { AuthContexts } from '../components/context/AuthContext';
 
 function PablicRoute({children}) {
     const {user} = AuthContexts()

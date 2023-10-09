@@ -8,7 +8,7 @@ function BlogCard({item}) {
         scroll.scrollToTop();
       };
   return (
-      <div className="card bg-base-100 shadow-xl overflow-hidden">
+      <div className="card bg-base-100 shadow-xl overflow-hidden" data-aos="fade-up">
           <figure><img src={item.image} alt="image" className='h-52 w-full object-cover' /></figure>
           <div className="card-body relative">
               <img src="/public/tree.png" alt="" className='w-[90px] absolute bottom-20 rotateY right-8 opacity-25' />

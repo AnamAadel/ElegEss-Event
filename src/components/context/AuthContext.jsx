@@ -90,10 +90,8 @@ function AuthProvider({children}) {
     });
   }
   const handleGoogleSignIn = ()=>{
-    setLoading(true);
     signInWithPopup(auth, authProviderGoogle).then(result => {
       setUser(result.user)
-      setLoading(false);
       toast.success("Login successfully!",{
         theme: "colored",
         toastId: "success"
@@ -109,11 +107,9 @@ function AuthProvider({children}) {
   }
 
   const handleGithubSignIn = ()=>{
-    setLoading(true);
     signInWithPopup(auth, authProviderGithub).then(result => {
       console.log(result);
       setUser(result.user)
-      setLoading(false)
       toast.success("User login successfully!",{
         theme: "colored",
         toastId: "success"
