@@ -1,4 +1,4 @@
-import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
+import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import { createContext, useContext, useEffect, useState } from 'react';
 import { app } from "../../firebase.config";
@@ -8,7 +8,7 @@ export const AuthContexts = ()=> {
     return useContext(myContext);
 }
 
-function AuthContext({children}) {
+function AuthProvider({children}) {
     
     const [user, setUser] = useState(null)
     const [userPhoto, setUserPhoto] = useState(null);
@@ -66,6 +66,13 @@ function AuthContext({children}) {
     })
   }
 
+  const logOutUser = ()=> {
+    signOut(auth).then(() => {
+      // Sign-out successful.
+    }).catch((error) => {
+      // An error happened.
+    });
+  }
   const handleGoogleSignIn = ()=>{
     setLoading(true);
     signInWithPopup(auth, authProviderGoogle).then(result => {
@@ -106,6 +113,7 @@ function AuthContext({children}) {
     handleFacebookSignIn,
     createUser,
     signInUser,
+    logOutUser,
     user,
     loading,
     userPhoto,
@@ -130,15 +138,8 @@ function AuthContext({children}) {
   )
 }
 
-export default AuthContext
+export default AuthProvider
 
 
 
 
-// https://firebasestorage.googleapis.com/v0/b/fir-authenticationprojec-880fd.appspot.com/o/users%2F6rJGWNnFjrQhuynfWwWUoEcvnte2.jpg?alt=media&token=bf4d122e-c0b8-4411-93f1-df44cdde1b72&_gl=1*8op1jm*_ga*OTM1NzMzNTM1LjE2ODQzODAzMDg.*_ga_CW55HF8NVT*MTY5NjIzNzA5Mi4yNi4xLjE2OTYyMzg3NDkuMzMuMC4w
-
-// https://firebasestorage.googleapis.com/v0/b/fir-authenticationprojec-880fd.appspot.com/o/users%2FQfqEepAXMDfZhmQ9kQVnZxTigq32.jpg?alt=media&token=97fefdec-5087-4a5d-9391-0bbde1d31038&_gl=1*1t5bx1c*_ga*OTM1NzMzNTM1LjE2ODQzODAzMDg.*_ga_CW55HF8NVT*MTY5NjIzNzA5Mi4yNi4xLjE2OTYyMzk0MzAuNDUuMC4w
-
-// https://firebasestorage.googleapis.com/v0/b/fir-authenticationprojec-880fd.appspot.com/o/users%2FdXUNUJ8XzyedNUfy98uzULiNZSg2.jpg?alt=media&token=48521f0e-7d0a-4909-8bbc-c3737634e69e&_gl=1*7xg8y0*_ga*OTM1NzMzNTM1LjE2ODQzODAzMDg.*_ga_CW55HF8NVT*MTY5NjIzNzA5Mi4yNi4xLjE2OTYyMzk1OTAuNjAuMC4w
-
-// 48521f0e-7d0a-4909-8bbc-c3737634e69e

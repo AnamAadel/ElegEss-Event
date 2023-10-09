@@ -1,7 +1,7 @@
-import { BsFacebook, BsGithub } from 'react-icons/bs';
+import { BsGithub } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
-import { AuthContexts } from "./context/AuthContext";
+import { AuthContexts } from "../components/context/AuthContext";
 
 function Register() {
     const {handleGoogleSignIn, handleGithubSignIn, handleFacebookSignIn, user, createUser} =  AuthContexts();
@@ -24,11 +24,18 @@ function Register() {
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
                         
-        <div className="flex gap-4 border-4 rounded-lg border-gray-900 text-5xl p-6">
-        <FcGoogle onClick={handleGoogleSignIn} className="cursor-pointer" />
-        <BsGithub onClick={handleGithubSignIn} className="cursor-pointer" />
-        <BsFacebook onClick={handleFacebookSignIn} className="cursor-pointer" />
+        <div className="flex flex-col gap-4 text-5xl p-6">
+        <button onClick={handleGoogleSignIn} className="cursor-pointer border-4 rounded-full text-lg p-4 flex gap-6 items-center">
+        <FcGoogle  className='text-4xl' />
+            Continue With Google
+        </button>
+        <button onClick={handleGithubSignIn} className="cursor-pointer border-4 rounded-full text-lg p-4 flex gap-6 items-center">
+        <BsGithub className='text-4xl' />
+            Continue With Github
+        </button>
+        {/* <BsFacebook onClick={handleFacebookSignIn} className="cursor-pointer" /> */}
         </div>
+        <span className='text-3xl font-bold'>OR</span>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
                         <form onSubmit={handleCreateUser}>

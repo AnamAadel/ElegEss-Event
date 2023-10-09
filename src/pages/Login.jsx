@@ -1,8 +1,8 @@
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
+import { AuthContexts } from "../components/context/AuthContext"; 
 import { app } from "../firebase.config";
-import { AuthContexts } from "./context/AuthContext";
 
 
 function Login() {
