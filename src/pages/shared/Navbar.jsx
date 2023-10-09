@@ -47,7 +47,7 @@ function Navbar() {
   return (
     <div className="navbar relative top-0 left-0 z-50 bg-primary" ref={navbar} >
         <div className="flex-1 " >
-            <Link to="/" className="btn btn-ghost normal-case text-xl"><img src="./Logo.png" alt="Logo" className='h-full' /></Link>
+            <Link to="/" className="btn btn-ghost normal-case text-xl bg-dark"><img src="./logo.png" alt="Logo" className='h-full' /></Link>
         </div>
         <div className="flex-none ">
             <ul className={`menu shadow-xl md:shadow-none md:w-auto rounded-md w-full absolute top-full transition-all duration-500 right-0 flex-nowrap md:static md:menu-horizontal px-1  ${!showMenu ? "h-0 overflow-hidden p-0" : "h-[150px] md:h-auto overflow-auto"} bg-primary`} >

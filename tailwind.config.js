@@ -9,7 +9,6 @@ module.exports = {
       colors: {
         primary: "#CFEFA6",
         dark: "#50493E",
-        bisque: "bisque"
       }
     },
   },

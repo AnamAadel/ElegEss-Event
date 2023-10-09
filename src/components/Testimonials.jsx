@@ -33,19 +33,33 @@ export default function Testimonials() {
         <div className="container mx-auto py-24">
         <h2 className="text-3xl font-bold text-center py-10 relative mb-6">Testimonials<img src="/underline.png" alt="underline" className='absolute w-[300px] bottom-2 left-1/2 -translate-x-1/2' /></h2>
             <Swiper
-                slidesPerView={3}
+                slidesPerView={1}
                 spaceBetween={30}
-                // freeMode={true}
+                freeMode={true}
                 pagination={{
                 clickable: true,
                 }}
                 autoplay={{
                 delay: 2500,
-                disableOnInteraction: false,
+                disableOnInteraction: true,
                 }}
                 loop={true}
+                breakpoints={{
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 40,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 50,
+                },
+                }}
                 modules={[FreeMode, Pagination, Autoplay]}
-                className="mySwiper h-[300px]"
+                className="mySwiper"
             >
             {comments.length > 0 && comments.map((item)=> (
                 <SwiperSlide  key={item.id}><TestimonialCard item={item} /></SwiperSlide>

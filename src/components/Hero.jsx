@@ -12,7 +12,7 @@ function Hero() {
           <div className="hero-content text-center">
               <div className="max-w-md -mt-44">
                   <h1 className="text-3xl font-bold">Elevating Moments, Inspiring Memories</h1>
-                  <p className="py-6 font-medium">Welcome to <span>Elegance & Essence Events</span>, where we specialize in crafting unforgettable Islamic events that reflect your unique style and culture. From weddings to conferences, we bring your visions to life, ensuring every detail celebrates tradition and artistry. Let us transform your moments into cherished memories</p>
+                  <p className="py-6 font-medium">Welcome to <span className='font-extrabold'>Elegance & Essence Events</span>, where we specialize in crafting unforgettable Islamic events that reflect your unique style and culture. From weddings to conferences, we bring your visions to life, ensuring every detail celebrates tradition and artistry. Let us transform your moments into cherished memories</p>
                   
               </div>
           </div>
