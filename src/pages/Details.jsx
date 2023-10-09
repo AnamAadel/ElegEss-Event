@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 import Card from '../components/Card';
-import Footer from "../components/Footer";
-import Navbar from './shared/Navbar';
+import { useData } from '../components/context/EventContext';
 
 function Details() {
     const [serviceData, setServiceData] = useState([]);
     const paramId = useParams();
+    const {setDataToLocal} = useData();
 
     const findItem = serviceData.find(item=> item.id === paramId.id);
     console.log(findItem)
@@ -26,34 +28,30 @@ function Details() {
     },[])
   return (
     <>
-    <Navbar />
-    <div className="container mx-auto grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 items-start">
-        <div className="card rounded-none bg-base-100 overflow-hidden sm:col-span-2 lg:col-span-3">
-            <figure className='relative'>
-                <img src={findItem?.image} alt="image" className='w-full object-cover' />
-                <div className="hero absolute left-0 bottom-0" >
-          <div className="hero-overlay bg-black bg-opacity-60 h-full"></div>
-          <button className="btn text-dark bg-primary font-bold border-0 ml-6 my-4 justify-self-start">Pay for {findItem?.price}</button>
-        </div>
+    <div className="container mx-auto space-y-8 relative">
+    <ToastContainer />
+        <div className="card flex flex-row gap-6 rounded-none bg-base-100 overflow-hidden sm:col-span-2 lg:col-span-3">
+            <figure className='relative flex-1'>
+                <img src={findItem?.image} alt="image" className='h-96 w-full object-cover' />
             </figure>
-            <div className="card-body relative">
-                <h2 className="card-title font-bold text-xl">{findItem?.name}</h2>
-                <p className='font-bold'>Price: {findItem?.price}</p>
-                <p className='font-medium'>{findItem?.description}</p>
-                {/* <div className="card-actions">
-                    <button className="btn text-dark bg-primary">Read More</button>
-                </div> */}
+            <div className="card-body relative flex-1">
+                <h2 className="card-title font-bold text-4xl">{findItem?.name}</h2>
+                <p className='font-bold flex-grow-0'>Price: {findItem?.price}</p>
+                <p className='font-medium flex-grow-0'>{findItem?.description}</p>
+                <div className="card-actions">
+                <button className="btn text-white bg-dark font-bold border-0 my-4 justify-self-start" onClick={()=> setDataToLocal(parseInt(findItem.id))}>Pay for {findItem?.price}</button>
+                </div>
             </div>
         </div>
 
-        <div className='sm:col-span-1 lg:col-span-2 space-y-6'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
             {serviceData.length > 0 && serviceData.filter(item => item.id !== paramId.id).map((item, idx)=> (
                     <Card item={item} key={idx} />
                 ))}
 
         </div>
     </div>
-    <Footer />
+    
     </>
   )
 }

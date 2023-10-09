@@ -8,12 +8,10 @@ import Navbar from './shared/Navbar'
 function Home() {
   return (
     <div className='overflow-hidden'>
-        <Navbar />
         <Hero />
         <About />
         <Services />
         {/* <Testimonials /> */}
-        <Footer />
     </div>
   )
 }

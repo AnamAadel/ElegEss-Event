@@ -33,4 +33,16 @@
     align-items: center;
 }
 
+#success {
+    background-color: #4486ff;
+    color: white;
+  }
+  #warning {
+    background-color: #ff444a !important;
+    color: white !important;
+  }
+  .Toastify__progress-bar {
+    background: #fff;
+  }
+
 

@@ -45,15 +45,15 @@ function Navbar() {
   },[])
   
   return (
-    <div className="navbar relative top-0 left-0 z-50 bg-primary" ref={navbar} >
+    <div className="navbar rounded-none relative top-0 left-0 z-50 bg-primary" ref={navbar} >
         <div className="flex-1 " >
             <Link to="/" className="btn btn-ghost normal-case text-xl bg-dark"><img src="./logo.png" alt="Logo" className='h-full' /></Link>
         </div>
         <div className="flex-none ">
-            <ul className={`menu shadow-xl md:shadow-none md:w-auto rounded-md w-full absolute top-full transition-all duration-500 right-0 flex-nowrap md:static md:menu-horizontal px-1  ${!showMenu ? "h-0 overflow-hidden p-0" : "h-[150px] md:h-auto overflow-auto"} bg-primary`} >
+            <ul className={`menu shadow-xl md:shadow-none md:w-auto w-full absolute top-full transition-all rounded-none duration-500 right-0 flex-nowrap md:static md:menu-horizontal px-1  ${!showMenu ? "h-0 overflow-hidden p-0" : "h-[150px] md:h-auto overflow-auto"} bg-primary`} >
             <li onClick={handleMenu}><NavLink to={`/`}>Home</NavLink></li>
-            <li onClick={handleMenu}><NavLink to={`/donation`}>Donation</NavLink></li>
-            <li onClick={handleMenu}><NavLink to={`/statistics`}>Statistics</NavLink></li>
+            <li onClick={handleMenu}><NavLink to={`/blogs/1`}>Blogs</NavLink></li>
+            <li onClick={handleMenu}><NavLink to={`/purchase_details`}>Purchase Details</NavLink></li>
             </ul>
 
           <label className="btn btn-circle bg-white swap swap-rotate md:hidden" onClick={()=> setShowMenu(checkInput.current.checked)} >
