@@ -1,8 +1,8 @@
 import { Navigate } from 'react-router-dom';
-import { AuthContexts } from './context/AuthContext';
+import { AuthContexts } from '../components/context/AuthContext';
 
 function PrivateRoute({children}) {
-    const {user, loading} = AuthContexts();
+    const {user} = AuthContexts();
   return (
     <>
         {user && children}

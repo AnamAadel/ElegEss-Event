@@ -9,6 +9,8 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import PurchaseDetails from "../pages/PurchaseDetails";
 import Register from "../pages/Register";
+import PablicRoute from "./PablicRoute";
+import PrivateRoute from "./PrivateRoute";
 
 
  const router = createBrowserRouter([
@@ -22,28 +24,28 @@ import Register from "../pages/Register";
       },
       {
         path: "/:id",
-        element: <Details />,
+        element: <PrivateRoute><Details /></PrivateRoute> ,
       },
       {
         path: "/blogs/:id",
-        element: <Blogs />,
+        element: <PrivateRoute><Blogs /></PrivateRoute> ,
       },
       {
         path: "/purchase_details",
         loader: ()=> fetch("service.json"),
-        element: <PurchaseDetails />,
+        element: <PrivateRoute><PurchaseDetails /></PrivateRoute> ,
       },
       {
         path: "/contact",
-        element: <ContactUs />,
+        element: <PrivateRoute><ContactUs /></PrivateRoute> ,
       },
       {
         path: "/register",
-        element: <Register />,
+        element: <PablicRoute><Register /></PablicRoute> ,
       },
       {
         path: "/login",
-        element: <Login />,
+        element: <PablicRoute> <Login /></PablicRoute>,
       },
     ]
   },

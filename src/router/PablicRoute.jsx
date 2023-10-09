@@ -1,9 +1,9 @@
 
 import { Navigate } from 'react-router-dom'
-import { AuthContexts } from './context/AuthContext'
+import { AuthContexts } from '../components/context/AuthContext'
 
 function PablicRoute({children}) {
-    const {user, loading} = AuthContexts()
+    const {user} = AuthContexts()
   return (
     <>
         

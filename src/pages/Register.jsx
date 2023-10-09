@@ -1,6 +1,7 @@
 import { BsGithub } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import { AuthContexts } from "../components/context/AuthContext";
 
 function Register() {
@@ -16,26 +17,40 @@ function Register() {
         console.log(file)
         // console.log(password)
         // console.log(userName)
+        if(/^(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{6,}$/.test(password)){
 
-        createUser(email, password, userName, file)
+            createUser(email, password, userName, file)
+            toast.success("your registration has completed successfully",{
+                toastId: "success",
+                theme: "colored"
+            })
+        }else{
+            toast.warn("The password should be greater than 6 characters, contain at least one capital letter, and have at least one special character.",{
+                theme: "colored"
+            });
+            console.log("false")
+
+        }
+
 
     }
     return (
         <div className="hero min-h-screen bg-base-200">
+        <ToastContainer />
             <div className="hero-content flex-col lg:flex-row-reverse">
-                        
-        <div className="flex flex-col gap-4 text-5xl p-6">
-        <button onClick={handleGoogleSignIn} className="cursor-pointer border-4 rounded-full text-lg p-4 flex gap-6 items-center">
-        <FcGoogle  className='text-4xl' />
-            Continue With Google
-        </button>
-        <button onClick={handleGithubSignIn} className="cursor-pointer border-4 rounded-full text-lg p-4 flex gap-6 items-center">
-        <BsGithub className='text-4xl' />
-            Continue With Github
-        </button>
-        {/* <BsFacebook onClick={handleFacebookSignIn} className="cursor-pointer" /> */}
-        </div>
-        <span className='text-3xl font-bold'>OR</span>
+
+                <div className="flex flex-col gap-4 text-5xl p-6 text-left">
+                    <button onClick={handleGoogleSignIn} className="cursor-pointer border-4 rounded-full text-lg p-4 flex gap-2 items-center">
+                        <FcGoogle className='text-4xl' />
+                        Continue With Google
+                    </button>
+                    <button onClick={handleGithubSignIn} className="cursor-pointer border-4 rounded-full text-lg p-4 gap-2 flex items-center ">
+                        <BsGithub className='text-4xl' />
+                        Continue With Github
+                    </button>
+                    {/* <BsFacebook onClick={handleFacebookSignIn} className="cursor-pointer" /> */}
+                </div>
+                <span className='text-3xl font-bold'>OR</span>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
                         <form onSubmit={handleCreateUser}>
@@ -57,12 +72,12 @@ function Register() {
                                 </label>
                                 <input type="password" placeholder="password" className="input input-bordered" name='password' />
                             </div>
-                            <div className="form-control">
-                                <input type="file" className="input input-bordered" name='file' />
-                                <p className='font-bold text-sm mt-2'>If You have already registered, Please <Link to="/register" className='text-blue-400'>Log in.</Link></p>
+                            <div className="form-control space-y-4">
+                                <input type="file" className="file-input file-input-bordered mt-4 w-full max-w-xs " name='file' />
+                                <p className='font-bold text-sm mt-2'>If You have already registered, Please <Link to="/login" className='text-blue-400'>Log in.</Link></p>
                             </div>
                             <div className="form-control mt-2">
-                                <button className="btn btn-primary">Register</button>
+                                <button className="btn bg-dark hover:bg-dark text-white">Register</button>
                             </div>
                         </form>
                     </div>

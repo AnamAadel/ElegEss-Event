@@ -1,6 +1,7 @@
 import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import { createContext, useContext, useEffect, useState } from 'react';
+import { toast } from "react-toastify";
 import { app } from "../../firebase.config";
 const myContext = createContext(null);
 
@@ -61,26 +62,49 @@ function AuthProvider({children}) {
         setUser(result.user)
       console.log(result);
       setLoading(false);
+      toast.success("User login successfully!",{
+        theme: "colored",
+        toastId: "success"
+
+    });
     }).catch(error => {
       console.log(error)
+      toast.warn(`${error}`,{
+        theme: "colored"
+    });
     })
   }
 
   const logOutUser = ()=> {
     signOut(auth).then(() => {
-      // Sign-out successful.
+      // 
+      toast.success("Sign-out successful.",{
+        theme: "colored",
+        toastId: "success"
+    });
     }).catch((error) => {
       // An error happened.
+      toast.warn(`An error happened`,{
+        theme: "colored"
+    });
     });
   }
   const handleGoogleSignIn = ()=>{
     setLoading(true);
     signInWithPopup(auth, authProviderGoogle).then(result => {
-      console.log(result);
       setUser(result.user)
       setLoading(false);
+      toast.success("Login successfully!",{
+        theme: "colored",
+        toastId: "success"
+
+    });
+      
     }).catch(error => {
       console.log(error)
+      toast.warn(`An error happened`,{
+        theme: "colored"
+    });
     })
   }
 
@@ -90,8 +114,16 @@ function AuthProvider({children}) {
       console.log(result);
       setUser(result.user)
       setLoading(false)
+      toast.success("User login successfully!",{
+        theme: "colored",
+        toastId: "success"
+
+    });
     }).catch(error => {
       console.log(error)
+      toast.warn(`An error happened`,{
+        theme: "colored"
+    });
     })
   }
 
@@ -122,9 +154,10 @@ function AuthProvider({children}) {
 
   useEffect(()=> {
     const unsubscribe = onAuthStateChanged(auth, (currentUser)=> {
-        console.log("auth called!");
+        console.log(currentUser);
         
         setUser(currentUser);
+        setUserPhoto(currentUser?.photoURL)
         setLoading(false)
     })
     

@@ -1,7 +1,8 @@
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { AuthContexts } from "../components/context/AuthContext"; 
+import { ToastContainer } from "react-toastify";
+import { AuthContexts } from "../components/context/AuthContext";
 import { app } from "../firebase.config";
 
 
@@ -26,6 +27,7 @@ function Login() {
     }
     return (
         <div className="hero min-h-screen bg-base-200">
+        <ToastContainer />
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
@@ -45,9 +47,9 @@ function Login() {
                                     <a className="label-text-alt link link-hover" onClick={handleResetPassword}>Forgot password?</a>
                                 </label>
                             </div>
-                            <p className='font-bold text-sm mt-2'>If You don not have already registered, Please <Link to="/login" className='text-blue-400'>Register.</Link></p>
+                            <p className='font-bold text-sm mt-2'>If You don not have already registered, Please <Link to="/register" className='text-blue-400'>Register.</Link></p>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
+                                <button className="btn bg-dark hover:bg-dark text-white">Login</button>
                             </div>
                             
                         </form>
