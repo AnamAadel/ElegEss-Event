@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import logo from "../../assets/logo.png";
 import noUserPhoto from "../../assets/user.png";
 import { AuthContexts } from '../../components/context/AuthContext';
 
 function Navbar() {
   const [showMenu, setShowMenu] = useState(true);
   const checkInput = useRef();
-  const navbar = useRef();
+  const navbar = useRef(null);
   const { user, userPhoto, logOutUser, userName } = AuthContexts();
   console.log(user?.photoURL);
 
@@ -51,13 +52,13 @@ function Navbar() {
   return (
     <div className="navbar rounded-none relative top-0 left-0 z-40 bg-primary" ref={navbar} >
       <div className="flex-1 " >
-        <Link to="/" className="btn btn-ghost normal-case text-xl bg-dark"><img src="./logo.png" alt="Logo" className='h-full' /></Link>
+        <Link to="/" className="btn btn-ghost normal-case text-xl bg-dark"><img src={logo} alt="Logo" className='h-full' /></Link>
       </div>
       <div className="flex-none ">
         <ul className={`menu shadow-xl md:shadow-none md:w-auto w-full absolute top-full transition-all rounded-none duration-500 right-0 flex-nowrap md:static md:menu-horizontal px-1  ${!showMenu ? "h-0 overflow-hidden p-0" : "h-[150px] md:h-auto overflow-auto"} bg-primary`} >
           <li onClick={handleMenu}><NavLink to={`/`}>Home</NavLink></li>
           <li onClick={handleMenu}><NavLink to={`/blogs/1`}>Blogs</NavLink></li>
-          {/* <li onClick={handleMenu}><NavLink to={`/purchaseDetails`}>Purchase Details</NavLink></li> */}
+          <li><NavLink to="/purchases">Purchase Details</NavLink></li>
           <li onClick={handleMenu}><NavLink to={`/contact`}>Contact Us</NavLink></li>
         </ul>
 
@@ -68,15 +69,15 @@ function Navbar() {
             <img src={user ? userPhoto : noUserPhoto} />
           </div> */}
             <div className="w-10 rounded-full">
-              <img src={user ? userPhoto : user?.photoURL ? user?.photoURL : noUserPhoto} />
+              <img src={userPhoto ? userPhoto : noUserPhoto} />
             </div>
           </label>
           <div tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-center space-y-4">
             <div className="w-10 rounded-full mx-auto">
               {/* <img src={user ?  user?.photoURL : userPhoto ? userPhoto : noUserPhoto} /> */}
-              <img src={user &&  user?.photoURL } />
+              <img src={userPhoto ? userPhoto : noUserPhoto} />
             </div>
-            <h3 className='text-lg font-semibold'>{user ? `Hi! ${user.displayName || userName}` : "What's up, bro?"} </h3>
+            <h3 className='text-lg font-semibold'>{user ? `Hi! ${userName || user.displayName}` : "What's up, bro?"} </h3>
             {user ?
               <button className='btn bg-dark text-white hover:bg-dark' onClick={logOutUser}>Logout</button>
               :

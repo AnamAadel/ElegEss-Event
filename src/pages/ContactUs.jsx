@@ -1,4 +1,3 @@
-import React from 'react'
 
 function ContactUs() {
   return (
@@ -16,7 +15,7 @@ function ContactUs() {
       </ul>
     </div>
     <div className="p-8 flex-shrink-0 w-full max-w-2xl shadow-2xl bg-base-100 rounded-none  relative overflow-hidden">
-    <img src="/public/leaves.png" alt="" className='w-[300px] md:w-[500px] absolute bottom-0 -right-44 opacity-25 rotateY' />
+    <img src="/leaves.png" alt="" className='w-[300px] md:w-[500px] absolute bottom-0 -right-44 opacity-25 rotateY' />
       <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="form-control">
           <label className="label">

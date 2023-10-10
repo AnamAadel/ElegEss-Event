@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 function About() {
   return (
@@ -12,7 +12,7 @@ function About() {
             
                 <p className="font-medium max-w-xl mx-auto">Welcome to <b>Elegance & Essence Events</b>, your trusted partner in creating unforgettable Islamic events and experiences.
 
-                    At <b>Elegance & Essence Events</b>, we are passionate about bringing your dreams and visions to life, weaving together the rich traditions and values of Islam with modern creativity and expertise. Our mission is to provide top-notch event management services that not only meet but exceed your expectations, ensuring every moment is filled with beauty, spirituality, and meaning. Whether you're planning a wedding, a corporate gathering, a religious celebration, or any other special occasion, <b>Elegance & Essence Events</b> is here to make it extraordinary. Let us take the stress out of event planning while you focus on enjoying the moment and creating lasting memories.</p>
+                    At <b>Elegance & Essence Events</b>, we are passionate about bringing your dreams and visions to life, weaving together the rich traditions and values of Islam with modern creativity and expertise. Our mission is to provide top-notch event management services that not only meet but exceed your expectations, ensuring every moment is filled with beauty, spirituality, and meaning. Whether you are planning a wedding, a corporate gathering, a religious celebration, or any other special occasion, <b>Elegance & Essence Events</b> is here to make it extraordinary. Let us take the stress out of event planning while you focus on enjoying the moment and creating lasting memories.</p>
             </div>
         </div>
   )

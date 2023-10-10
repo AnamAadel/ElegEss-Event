@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { scroll } from "react-scroll";
 
@@ -11,7 +11,7 @@ function BlogCard({item}) {
       <div className="card bg-base-100 shadow-xl overflow-hidden" data-aos="fade-up">
           <figure><img src={item.image} alt="image" className='h-52 w-full object-cover' /></figure>
           <div className="card-body relative">
-              <img src="/public/tree.png" alt="" className='w-[90px] absolute bottom-20 rotateY right-8 opacity-25' />
+              <img src="/tree.png" alt="" className='w-[90px] absolute bottom-20 rotateY right-8 opacity-25' />
               <h2 className="card-title font-bold text-2xl">{item.title}</h2>
               <p className='font-bold text-xl'>Author: {item.author}</p>
               <p className='font-bold'>Author: {item.date}</p>
@@ -24,4 +24,7 @@ function BlogCard({item}) {
   )
 }
 
+BlogCard.propTypes = {
+    item: PropTypes.object.isRequired
+}
 export default BlogCard

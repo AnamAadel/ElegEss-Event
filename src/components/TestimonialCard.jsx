@@ -1,5 +1,6 @@
-import React from 'react'
-import { RiDoubleQuotesL, RiDoubleQuotesR } from "react-icons/ri"
+
+import PropTypes from 'prop-types';
+import { RiDoubleQuotesL, RiDoubleQuotesR } from "react-icons/ri";
 
 function TestimonialCard({item}) {
   return (
@@ -14,4 +15,7 @@ function TestimonialCard({item}) {
   )
 }
 
+TestimonialCard.propTypes = {
+  item: PropTypes.object.isRequired
+}
 export default TestimonialCard

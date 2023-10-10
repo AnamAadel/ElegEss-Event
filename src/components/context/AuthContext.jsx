@@ -1,5 +1,6 @@
 import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import PropTypes from "prop-types";
 import { createContext, useContext, useEffect, useState } from 'react';
 import { toast } from "react-toastify";
 import { app } from "../../firebase.config";
@@ -35,12 +36,13 @@ function AuthProvider({children}) {
         uploadBytes(storageRef, file).then((snapshot)=> {
           
           getDownloadURL(storageRef).then((url => {
+            const userImage = file ? url : null;
 
             console.log(url)
-            setUserPhoto(url);
+            setUserPhoto(userImage);
             setUserName(userName);
             
-            updateProfile(auth.currentUser, {displayName: userName, photoURL: url}).then(() => {
+            updateProfile(auth.currentUser, {displayName: userName, photoURL: userImage}).then(() => {
               console.log("profile updated!")
               setLoading(false);
             }).catch(error => console.log(error));
@@ -50,8 +52,17 @@ function AuthProvider({children}) {
 
         setUser(result.user)
         console.log(result.user);
+        toast.success("User created successfully!",{
+          theme: "colored",
+          toastId: "success"
+  
+      });
     }).catch(error => {
         console.log(error)
+        setLoading(false);
+        toast.warn(`${error}`,{
+          theme: "colored"
+      });
     })
     // const user = auth.currentUser;
   }
@@ -69,7 +80,8 @@ function AuthProvider({children}) {
     });
     }).catch(error => {
       console.log(error)
-      toast.warn(`${error}`,{
+      setLoading(false);
+      toast.warn('An error happened',{
         theme: "colored"
     });
     })
@@ -84,14 +96,17 @@ function AuthProvider({children}) {
     });
     }).catch((error) => {
       // An error happened.
+      console.log(error)
       toast.warn(`An error happened`,{
         theme: "colored"
     });
     });
   }
   const handleGoogleSignIn = ()=>{
+    setLoading(true);
     signInWithPopup(auth, authProviderGoogle).then(result => {
       setUser(result.user)
+      setLoading(false);
       toast.success("Login successfully!",{
         theme: "colored",
         toastId: "success"
@@ -100,6 +115,7 @@ function AuthProvider({children}) {
       
     }).catch(error => {
       console.log(error)
+      setLoading(false);
       toast.warn(`An error happened`,{
         theme: "colored"
     });
@@ -107,9 +123,11 @@ function AuthProvider({children}) {
   }
 
   const handleGithubSignIn = ()=>{
+    setLoading(true);
     signInWithPopup(auth, authProviderGithub).then(result => {
       console.log(result);
       setUser(result.user)
+      setLoading(false);
       toast.success("User login successfully!",{
         theme: "colored",
         toastId: "success"
@@ -117,6 +135,7 @@ function AuthProvider({children}) {
     });
     }).catch(error => {
       console.log(error)
+      setLoading(false);
       toast.warn(`An error happened`,{
         theme: "colored"
     });
@@ -153,6 +172,7 @@ function AuthProvider({children}) {
         console.log(currentUser);
         
         setUser(currentUser);
+        setUserName(currentUser?.displayName);
         setUserPhoto(currentUser?.photoURL)
         setLoading(false)
     })
@@ -166,6 +186,13 @@ function AuthProvider({children}) {
     </myContext.Provider>
   )
 }
+AuthProvider.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.node,
+  ]).isRequired,
+};
 
 export default AuthProvider
 

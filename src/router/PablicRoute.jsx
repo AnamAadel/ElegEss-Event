@@ -1,16 +1,25 @@
-
+import PropTypes from 'prop-types';
 import { Navigate } from 'react-router-dom';
 import { AuthContexts } from '../components/context/AuthContext';
 
-function PablicRoute({children}) {
-    const {user} = AuthContexts()
+function PablicRoute({ children }) {
+  const { user } = AuthContexts();
+
   return (
-    <>
-        
-        { !user && children }
-        { user && <Navigate to="/"></Navigate>}
-    </>
-  )
+    <div>
+      {!user && children}
+      {user && <Navigate to="/" />}
+    </div>
+  );
 }
 
-export default PablicRoute
+PablicRoute.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.node,
+    
+  ]).isRequired,
+};
+
+export default PablicRoute;

@@ -8,7 +8,7 @@ import Details from "../pages/Details";
 import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
-import PurchaseDetails from "../pages/PurchaseDetails";
+import Purchases from "../pages/Purchases";
 import Register from "../pages/Register";
 import PablicRoute from "./PablicRoute";
 import PrivateRoute from "./PrivateRoute";
@@ -29,13 +29,13 @@ import PrivateRoute from "./PrivateRoute";
         element: <PrivateRoute><Details /></PrivateRoute> ,
       },
       {
-        path: "/blogs/:id",
-        element: <PrivateRoute><Blogs /></PrivateRoute> ,
+        path: "/purchases",
+        // loader: ()=> fetch("service.json"),
+        element: <PrivateRoute><Purchases /></PrivateRoute> ,
       },
       {
-        path: "/purchaseDetails",
-        // loader: ()=> fetch("service.json"),
-        element: <PrivateRoute><PurchaseDetails /></PrivateRoute> ,
+        path: "/blogs/:id",
+        element: <PrivateRoute><Blogs /></PrivateRoute> ,
       },
       {
         path: "/contact",
